@@ -260,37 +260,45 @@
             <span class="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded font-semibold">9:16 Vertical</span>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- WhatsApp -->
             <div class="p-4 rounded-xl border border-admin-border bg-admin-bg/50 space-y-2">
-              <span class="text-xs font-bold text-emerald-700">1. WhatsApp Demo</span>
+              <span class="text-xs font-bold text-emerald-700">1. WhatsApp Live</span>
               <input type="text" id="videos_whatsapp_title" class="form-input text-xs font-semibold" placeholder="Title">
-              <input type="url" id="videos_whatsapp_url" class="form-input text-xs font-mono" placeholder="Video MP4 URL">
+              <input type="text" id="videos_whatsapp_url" class="form-input text-xs font-mono" placeholder="Video MP4 URL">
               <input type="text" id="videos_whatsapp_desc" class="form-input text-xs" placeholder="Description">
             </div>
 
-            <!-- Calls -->
+            <!-- Location Tracker -->
             <div class="p-4 rounded-xl border border-admin-border bg-admin-bg/50 space-y-2">
-              <span class="text-xs font-bold text-blue-700">2. Call Details Demo</span>
+              <span class="text-xs font-bold text-blue-700">2. Location Tracker</span>
               <input type="text" id="videos_calls_title" class="form-input text-xs font-semibold" placeholder="Title">
-              <input type="url" id="videos_calls_url" class="form-input text-xs font-mono" placeholder="Video MP4 URL">
+              <input type="text" id="videos_calls_url" class="form-input text-xs font-mono" placeholder="Video MP4 URL">
               <input type="text" id="videos_calls_desc" class="form-input text-xs" placeholder="Description">
             </div>
 
-            <!-- Camera -->
+            <!-- Social Media -->
             <div class="p-4 rounded-xl border border-admin-border bg-admin-bg/50 space-y-2">
-              <span class="text-xs font-bold text-purple-700">3. Camera &amp; Screen Demo</span>
+              <span class="text-xs font-bold text-amber-700">3. All Social Media</span>
+              <input type="text" id="videos_social_title" class="form-input text-xs font-semibold" placeholder="Title">
+              <input type="text" id="videos_social_url" class="form-input text-xs font-mono" placeholder="Video MP4 URL">
+              <input type="text" id="videos_social_desc" class="form-input text-xs" placeholder="Description">
+            </div>
+
+            <!-- Advance Mobile Access -->
+            <div class="p-4 rounded-xl border border-admin-border bg-admin-bg/50 space-y-2">
+              <span class="text-xs font-bold text-purple-700">4. Advance Mobile Access</span>
               <input type="text" id="videos_camera_title" class="form-input text-xs font-semibold" placeholder="Title">
-              <input type="url" id="videos_camera_url" class="form-input text-xs font-mono" placeholder="Video MP4 URL">
+              <input type="text" id="videos_camera_url" class="form-input text-xs font-mono" placeholder="Video MP4 URL">
               <input type="text" id="videos_camera_desc" class="form-input text-xs" placeholder="Description">
             </div>
 
-            <!-- Social -->
+            <!-- Full Phone Access -->
             <div class="p-4 rounded-xl border border-admin-border bg-admin-bg/50 space-y-2">
-              <span class="text-xs font-bold text-amber-700">4. Social Messages Demo</span>
-              <input type="text" id="videos_social_title" class="form-input text-xs font-semibold" placeholder="Title">
-              <input type="url" id="videos_social_url" class="form-input text-xs font-mono" placeholder="Video MP4 URL">
-              <input type="text" id="videos_social_desc" class="form-input text-xs" placeholder="Description">
+              <span class="text-xs font-bold text-rose-700">5. Full Phone Access</span>
+              <input type="text" id="videos_fullPhone_title" class="form-input text-xs font-semibold" placeholder="Title">
+              <input type="text" id="videos_fullPhone_url" class="form-input text-xs font-mono" placeholder="Video MP4 URL">
+              <input type="text" id="videos_fullPhone_desc" class="form-input text-xs" placeholder="Description">
             </div>
           </div>
         </div>
@@ -548,17 +556,23 @@
       document.getElementById('videos_whatsapp_url').value = data.videos?.whatsapp?.url || '';
       document.getElementById('videos_whatsapp_desc').value = data.videos?.whatsapp?.desc || '';
 
-      document.getElementById('videos_calls_title').value = data.videos?.calls?.title || '';
-      document.getElementById('videos_calls_url').value = data.videos?.calls?.url || '';
-      document.getElementById('videos_calls_desc').value = data.videos?.calls?.desc || '';
-
-      document.getElementById('videos_camera_title').value = data.videos?.camera?.title || '';
-      document.getElementById('videos_camera_url').value = data.videos?.camera?.url || '';
-      document.getElementById('videos_camera_desc').value = data.videos?.camera?.desc || '';
+      document.getElementById('videos_calls_title').value = data.videos?.location?.title || data.videos?.calls?.title || '';
+      document.getElementById('videos_calls_url').value = data.videos?.location?.url || data.videos?.calls?.url || '';
+      document.getElementById('videos_calls_desc').value = data.videos?.location?.desc || data.videos?.calls?.desc || '';
 
       document.getElementById('videos_social_title').value = data.videos?.social?.title || '';
       document.getElementById('videos_social_url').value = data.videos?.social?.url || '';
       document.getElementById('videos_social_desc').value = data.videos?.social?.desc || '';
+
+      document.getElementById('videos_camera_title').value = data.videos?.advance?.title || data.videos?.camera?.title || '';
+      document.getElementById('videos_camera_url').value = data.videos?.advance?.url || data.videos?.camera?.url || '';
+      document.getElementById('videos_camera_desc').value = data.videos?.advance?.desc || data.videos?.camera?.desc || '';
+
+      if (document.getElementById('videos_fullPhone_title')) {
+        document.getElementById('videos_fullPhone_title').value = data.videos?.fullPhone?.title || '';
+        document.getElementById('videos_fullPhone_url').value = data.videos?.fullPhone?.url || '';
+        document.getElementById('videos_fullPhone_desc').value = data.videos?.fullPhone?.desc || '';
+      }
 
       document.getElementById('videos_guide1_title').value = data.videos?.guide1?.title || '';
       document.getElementById('videos_guide1_url').value = data.videos?.guide1?.url || '';
@@ -751,20 +765,35 @@
             url: document.getElementById('videos_whatsapp_url').value,
             desc: document.getElementById('videos_whatsapp_desc').value
           },
+          location: {
+            title: document.getElementById('videos_calls_title').value,
+            url: document.getElementById('videos_calls_url').value,
+            desc: document.getElementById('videos_calls_desc').value
+          },
           calls: {
             title: document.getElementById('videos_calls_title').value,
             url: document.getElementById('videos_calls_url').value,
             desc: document.getElementById('videos_calls_desc').value
+          },
+          social: {
+            title: document.getElementById('videos_social_title').value,
+            url: document.getElementById('videos_social_url').value,
+            desc: document.getElementById('videos_social_desc').value
           },
           camera: {
             title: document.getElementById('videos_camera_title').value,
             url: document.getElementById('videos_camera_url').value,
             desc: document.getElementById('videos_camera_desc').value
           },
-          social: {
-            title: document.getElementById('videos_social_title').value,
-            url: document.getElementById('videos_social_url').value,
-            desc: document.getElementById('videos_social_desc').value
+          advance: {
+            title: document.getElementById('videos_camera_title').value,
+            url: document.getElementById('videos_camera_url').value,
+            desc: document.getElementById('videos_camera_desc').value
+          },
+          fullPhone: {
+            title: document.getElementById('videos_fullPhone_title')?.value || 'Full Phone Access',
+            url: document.getElementById('videos_fullPhone_url')?.value || 'videos/full phone access.mp4',
+            desc: document.getElementById('videos_fullPhone_desc')?.value || 'Poora phone control aur live display.'
           },
           guide1: {
             title: document.getElementById('videos_guide1_title').value,

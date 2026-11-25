@@ -76,7 +76,14 @@ const server = http.createServer((req, res) => {
     reqUrl = '/admin.html';
   }
 
-  const filePath = path.join(BASE_DIR, reqUrl);
+  let decodedUrl = reqUrl;
+  try {
+    decodedUrl = decodeURIComponent(reqUrl);
+  } catch (e) {
+    decodedUrl = reqUrl;
+  }
+
+  const filePath = path.join(BASE_DIR, decodedUrl);
 
   // Security check: prevent directory traversal
   if (!filePath.startsWith(BASE_DIR)) {
@@ -93,11 +100,32 @@ const server = http.createServer((req, res) => {
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
-    res.writeHead(200, {
-      'Content-Type': contentType,
-      'Access-Control-Allow-Origin': '*'
-    });
-    fs.createReadStream(filePath).pipe(res);
+    // HTTP Range Support for smooth MP4 video playback & seeking
+    const range = req.headers.range;
+    if (range && ext === '.mp4') {
+      const parts = range.replace(/bytes=/, '').split('-');
+      const start = parseInt(parts[0], 10);
+      const end = parts[1] ? parseInt(parts[1], 10) : stats.size - 1;
+      const chunkSize = (end - start) + 1;
+      const fileStream = fs.createReadStream(filePath, { start, end });
+
+      res.writeHead(206, {
+        'Content-Range': `bytes ${start}-${end}/${stats.size}`,
+        'Accept-Ranges': 'bytes',
+        'Content-Length': chunkSize,
+        'Content-Type': contentType,
+        'Access-Control-Allow-Origin': '*'
+      });
+      fileStream.pipe(res);
+    } else {
+      res.writeHead(200, {
+        'Content-Length': stats.size,
+        'Accept-Ranges': 'bytes',
+        'Content-Type': contentType,
+        'Access-Control-Allow-Origin': '*'
+      });
+      fs.createReadStream(filePath).pipe(res);
+    }
   });
 });
 

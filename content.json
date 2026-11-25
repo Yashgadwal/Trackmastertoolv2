@@ -64,43 +64,58 @@
     "youtube": "https://www.youtube.com/embed/WjmrgO-tGtc?rel=0&modestbranding=1",
     "whatsapp": {
       "title": "WhatsApp Demo",
-      "url": "https://hackwithyash.in/wp-content/uploads/2026/02/whatsapp.mp4",
-      "desc": "WhatsApp chat aur media mirroring demo."
+      "url": "videos/whatsapp h.mp4",
+      "desc": "WhatsApp chat, messages aur media mirroring demo."
     },
-    "calls": {
-      "title": "Call Details Demo",
-      "url": "https://hackwithyash.in/wp-content/uploads/2026/02/call-hack.mp4",
-      "desc": "Incoming-outgoing call list aur duration."
-    },
-    "camera": {
-      "title": "Camera & Screen",
-      "url": "https://hackwithyash.in/wp-content/uploads/2026/02/camera-hack.mp4",
-      "desc": "Camera preview aur screen activity view."
+    "location": {
+      "title": "Location Tracker Demo",
+      "url": "videos/location tracker.mp4",
+      "desc": "Live real-time location aur travel route history."
     },
     "social": {
-      "title": "Social Messages",
-      "url": "https://hackwithyash.in/wp-content/uploads/2026/02/snap-hack.mp4",
-      "desc": "Social media chat aur notification logs."
+      "title": "All Social Media Demo",
+      "url": "videos/all social media.mp4",
+      "desc": "Instagram, Facebook, Snapchat aur chat notifications."
+    },
+    "advance": {
+      "title": "Advance Mobile Access",
+      "url": "videos/advance mobile access.mp4",
+      "desc": "Call logs, SMS, phone settings aur silent remote access."
+    },
+    "fullPhone": {
+      "title": "Full Phone Access",
+      "url": "videos/full phone access.mp4",
+      "desc": "Poora phone control, screen preview aur complete monitoring demo."
+    },
+    "calls": {
+      "title": "Location Tracker Demo",
+      "url": "videos/location tracker.mp4",
+      "desc": "Live real-time location aur travel route history."
+    },
+    "camera": {
+      "title": "Advance Mobile Access",
+      "url": "videos/advance mobile access.mp4",
+      "desc": "Call logs, SMS, phone settings aur silent remote access."
     },
     "guide1": {
       "title": "Step 1 Guide: Setup Kaise Karein",
-      "url": "https://hackwithyash.in/wp-content/uploads/2025/12/1-video-without-watermark-.mp4"
+      "url": "videos/advance mobile access.mp4"
     },
     "guide2": {
       "title": "Step 2 Guide: Dashboard Kaise Chalayein",
-      "url": "https://hackwithyash.in/wp-content/uploads/2025/12/2-video-without-watermark-.mp4"
+      "url": "videos/full phone access.mp4"
     },
     "testimonial1": {
       "text": "\"Bina kisi dikkat ke 2 minute mein connect ho gaya. Bahut hi easy tool hai.\"",
-      "url": "https://hackwithyash.in/wp-content/uploads/2026/02/VID-20250410-WA0000.mp4"
+      "url": "videos/advance mobile access.mp4"
     },
     "testimonial2": {
       "text": "\"Live location aur calls dono saaf dikhti hain. Parivar ki safety ke liye best hai.\"",
-      "url": "https://hackwithyash.in/wp-content/uploads/2025/12/testimonial-male-2.mp4"
+      "url": "videos/location tracker.mp4"
     },
     "testimonial3": {
       "text": "\"Maine pehli baar aisa tool use kiya aur mujhe koi mushkil nahi aayi. Video guide bahut acchi hai.\"",
-      "url": "https://hackwithyash.in/wp-content/uploads/2026/02/testimonial.mp4"
+      "url": "videos/full phone access.mp4"
     }
   },
   "pricing": {
