@@ -42,21 +42,21 @@
       "step": "1",
       "badge": "Aapko Kya Karna Hai",
       "title": "Details Enter Karein",
-      "timeBadge": "⏱ Sirf 30 seconds lagte hain",
+      "timeBadge": "Sirf 30 seconds lagte hain",
       "desc": "Niche diye gaye button par click karein aur aage badhein. Sirf zaroori number ya ID enter karein. Kisi doosre ke phone ko hath lagane ki zaroorat nahi."
     },
     {
       "step": "2",
       "badge": "System Kaise Kaam Karta Hai",
       "title": "Secure Auto Connect",
-      "timeBadge": "🔒 100% Private & Safe",
+      "timeBadge": "100% Private & Safe",
       "desc": "Hamara secure system bina kisi app installation ke remote network connection banata hai. Yeh bilkul chupchap aur surakshit tareeqe se hota hai."
     },
     {
       "step": "3",
       "badge": "Aapko Kya Milega",
       "title": "Dashboard Par Dekhein",
-      "timeBadge": "📱 Apne mobile par kabhi bhi dekhein",
+      "timeBadge": "Apne mobile par kabhi bhi dekhein",
       "desc": "Aapko ek aasan dashboard (Tool) link milta hai. Apne phone par open karein aur WhatsApp messages, location aur call details aaram se padhein."
     }
   ],
